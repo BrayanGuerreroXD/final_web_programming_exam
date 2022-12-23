@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import com.example.demo.entities.Bill;
+import com.example.demo.repositories.BillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,4 +20,13 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/bills")
 public class BillController {
+
+    @Autowired
+    BillRepository billRepository;
+
+
+    @GetMapping
+    public List<Bill> getBillAll() {
+        return billRepository.findAll();
+    }
 }
