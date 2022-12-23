@@ -1,13 +1,6 @@
 package com.example.demo.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 
 import lombok.Data;
 
@@ -26,11 +19,15 @@ public class Bill {
     @JoinColumn(name="user_id")
     private User user;
 
+    @Column(name = "date_bill")
     private Date dateBill;
 
+    @Column(name = "value")
     private int value;
 
+    @Column(name = "type")
     private int type;
 
+    @Column(name = "observation")
     private String observation;
 }

@@ -45,6 +45,17 @@ public class UserController {
         return null;
     }
 
+    @GetMapping("{user}/bills")
+    public List<Bill> getBillsByUser(@PathVariable String user) {
+        User usuario = userRepository.findByuserName(user);
+
+        if(!usuario.getUserName().equals(null)){
+            return usuario.getBills();
+        }
+
+        return null;
+    }
+
 
     @PostMapping
     public User postUser(@RequestBody User user) {
